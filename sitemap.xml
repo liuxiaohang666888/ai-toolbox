@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Deployed to GitHub Pages. Real URL: https://liuxiaohang666888.github.io/ai-toolbox
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/index.html</loc><priority>0.6</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/index.html</loc><priority>1.0</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/qr.html</loc><priority>0.9</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/compress.html</loc><priority>0.9</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/tip.html</loc><priority>0.8</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/conv.html</loc><priority>0.8</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/pwd.html</loc><priority>0.8</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/timestamp.html</loc><priority>0.8</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/word.html</loc><priority>0.8</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/case.html</loc><priority>0.7</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/color.html</loc><priority>0.7</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/bmi.html</loc><priority>0.7</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/percent.html</loc><priority>0.7</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/timezone.html</loc><priority>0.7</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/json.html</loc><priority>0.7</priority></url>
+  <url><loc>https://liuxiaohang666888.github.io/ai-toolbox/en/ai.html</loc><priority>0.6</priority></url>
+</urlset>
