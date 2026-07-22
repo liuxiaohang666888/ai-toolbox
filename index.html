@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>小工具箱 · 免费在线小工具集合（国内版）</title>
+<meta name="description" content="免费在线小工具：二维码、图片压缩、外卖红包计算、单位换算、密码生成、字数统计、大小写转换、颜色取色、BMI、百分比、时区、JSON格式化、汇率换算、随机抽签。纯前端，打开即用。" />
+<meta name="keywords" content="免费在线工具,二维码生成,图片压缩,外卖红包计算器,单位换算,密码生成,字数统计,JSON格式化,汇率换算,小工具箱" />
+<!-- AD-PLACEHOLDER: 广告位（监护人18+账户开通 AdSense 后粘贴代码） -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --bg:#f6f7fb; --card:#ffffff; --ink:#1f2430; --sub:#6b7280;
+    --brand:#4f46e5; --brand2:#22c55e; --line:#e6e8ef; --radius:16px;
+    --shadow:0 6px 24px rgba(31,36,48,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
+    "PingFang SC","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;padding-bottom:48px}
+  header{background:linear-gradient(120deg,#4f46e5,#22c55e);
+    color:#fff;padding:24px 20px;text-align:center;position:relative}
+  header h1{font-size:26px;font-weight:800;letter-spacing:.5px}
+  header p{opacity:.92;margin-top:6px;font-size:14px}
+  .lang{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.2);
+    color:#fff;padding:6px 12px;border-radius:20px;text-decoration:none;font-size:13px;font-weight:600}
+  .lang:hover{background:rgba(255,255,255,.32)}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+  .ad-note{background:#fff7e6;border:1px solid #ffe08a;color:#8a6d00;
+    font-size:13px;padding:10px 14px;border-radius:10px;margin:16px auto;max-width:1000px}
+  .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+  @media(min-width:720px){.grid{grid-template-columns:300px 1fr}}
+  .nav{display:flex;flex-wrap:wrap;gap:8px}
+  @media(min-width:720px){.nav{flex-direction:column}}
+  .nav button{appearance:none;border:1px solid var(--line);background:var(--card);
+    color:var(--ink);padding:12px 14px;border-radius:12px;cursor:pointer;
+    text-align:left;font-size:15px;font-weight:600;transition:.15s}
+  .nav button:hover{border-color:var(--brand);color:var(--brand)}
+  .nav button.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);min-height:320px}
+  .panel h2{font-size:19px;margin-bottom:4px}
+  .panel .desc{color:var(--sub);font-size:13px;margin-bottom:16px}
+  label{display:block;font-size:13px;color:var(--sub);margin:12px 0 6px}
+  input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);
+    border-radius:10px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
+  textarea{resize:vertical;min-height:80px}
+  button.ghost{background:#eef0f7;color:var(--ink);border:none;padding:9px 14px;
+    border-radius:9px;cursor:pointer;font-size:13px;margin-top:8px}
+  .out{margin-top:14px;background:#f9fafc;border:1px dashed var(--line);
+    border-radius:10px;padding:12px;font-size:15px;word-break:break-all}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  .big{font-size:22px;font-weight:800;color:var(--brand)}
+  #qrcode{margin-top:14px;display:flex;justify-content:center}
+  .links a{display:block;padding:12px 14px;border:1px solid var(--line);
+    border-radius:12px;margin-bottom:10px;text-decoration:none;color:var(--ink);transition:.15s}
+  .links a:hover{border-color:var(--brand);color:var(--brand)}
+  .links small{color:var(--sub);display:block;margin-top:2px}
+  .tag{display:inline-block;background:#eef0f7;color:var(--sub);font-size:12px;
+    padding:2px 8px;border-radius:20px;margin-left:6px}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:30px;padding:0 16px}
+  .legal{background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;font-size:12px;color:var(--sub);margin-top:16px}
+</style>
+</head>
+<body>
+<header>
+  <a class="lang" href="en/index.html">🌐 English</a>
+  <h1>🧰 小工具箱（国内版）</h1>
+  <p>免费 · 在线 · 打开即用 · 不用登录</p>
+</header>
+
+<div class="ad-note">
+  💡 <b>关于赚钱：</b>本站工具都是真能用的纯前端工具。想靠广告赚钱需 <b>AdSense 账户（须18岁以上）</b>，
+  可用父母/监护人名义开通，收益归你。标了 <code>AD-PLACEHOLDER</code> 处即放广告代码的位置。
+  （注意：国内用户大多加载不出 Google 广告，国内流量想变现可走监护人实名的国内联盟。）
+</div>
+
+<div class="wrap">
+  <div class="grid">
+    <nav class="nav" id="nav">
+      <button data-tool="qr" class="active">🔳 二维码生成</button>
+      <button data-tool="img">🗜️ 图片压缩</button>
+      <button data-tool="hb">🍱 外卖红包计算器</button>
+      <button data-tool="conv">🔁 单位换算</button>
+      <button data-tool="pwd">🔐 密码生成器</button>
+      <button data-tool="ts">⏱️ 时间戳转换</button>
+      <button data-tool="word">🔤 字数统计</button>
+      <button data-tool="case">🔡 大小写转换</button>
+      <button data-tool="color">🎨 颜色取色器</button>
+      <button data-tool="bmi">⚖️ BMI计算器</button>
+      <button data-tool="pct">📊 百分比计算器</button>
+      <button data-tool="tz">🌐 时区转换</button>
+      <button data-tool="json">🧾 JSON格式化</button>
+      <button data-tool="fx">💱 汇率换算</button>
+      <button data-tool="draw">🎲 随机抽签</button>
+      <button data-tool="ai">🔗 免费AI工具导航</button>
+    </nav>
+
+    <section class="panel" id="panel"><!-- 动态注入 --></section>
+  </div>
+
+  <!-- AD-PLACEHOLDER: 广告位 A（列表与面板之间，流量大） -->
+
+  <div class="legal">
+    <b>合规说明：</b>本网站为个人学习/工具类项目，所有计算与处理均在你的浏览器本地完成，不上传任何数据到服务器。
+    接入广告或收款功能时，请使用监护人（年满 18 岁）名义的账户，并遵守对应平台的服务条款。
+  </div>
+</div>
+
+<footer>
+  © 小工具箱 · 用 AI 生成 · 部署在 Vercel / Netlify 免费版 ·
+  想加工具？改 index.html 里的 panel 模板即可
+</footer>
+
+<script>
+const panel = document.getElementById('panel');
+const nav = document.getElementById('nav');
+
+const tools = {
+  qr: () => `
+    <h2>🔳 二维码生成器</h2>
+    <div class="desc">输入文字或网址，实时生成可下载的二维码。</div>
+    <label>内容（网址 / 文字 / 微信名片等）</label>
+    <input id="qrText" value="https://www.bing.com" oninput="genQR()"/>
+    <div id="qrcode"></div>
+    <button class="ghost" onclick="dlQR()">⬇️ 下载二维码 PNG</button>`,
+  img: () => `
+    <h2>🗜️ 图片压缩</h2>
+    <div class="desc">在浏览器本地压缩图片，不上传服务器。质量越低体积越小。</div>
+    <label>选择图片</label>
+    <input type="file" id="imgFile" accept="image/*" onchange="compressImg()"/>
+    <label>压缩质量（0.1 ~ 1.0）</label>
+    <input type="range" id="quality" min="0.1" max="1" step="0.05" value="0.7" onchange="compressImg()"/>
+    <div class="out" id="imgInfo">尚未选择图片</div>
+    <canvas id="cv" style="display:none"></canvas>
+    <button class="ghost" id="dlImg" style="display:none" onclick="dlImg()">⬇️ 下载压缩后图片</button>`,
+  hb: () => `
+    <h2>🍱 外卖红包计算器</h2>
+    <div class="desc">算清楚：满减 + 红包后，你到底花了多少、省了多少。</div>
+    <label>商品原价（元）</label>
+    <input type="number" id="hbPrice" value="45" oninput="calcHB()"/>
+    <label>店铺满减（如满40减12，填12）</label>
+    <input type="number" id="hbCut" value="12" oninput="calcHB()"/>
+    <label>红包抵扣（元）</label>
+    <input type="number" id="hbRed" value="5" oninput="calcHB()"/>
+    <label>配送费（元）</label>
+    <input type="number" id="hbShip" value="3" oninput="calcHB()"/>
+    <div class="out" id="hbOut"></div>`,
+  conv: () => `
+    <h2>🔁 单位换算</h2>
+    <div class="desc">长度 / 重量 / 温度，常用单位一键换算。</div>
+    <label>类型</label>
+    <select id="convType" onchange="conv()">
+      <option value="len">长度</option>
+      <option value="weight">重量</option>
+      <option value="temp">温度</option>
+    </select>
+    <div class="row">
+      <div style="flex:1"><label>数值</label><input type="number" id="convVal" value="1" oninput="conv()"/></div>
+      <div style="flex:1"><label>从</label><select id="convFrom" onchange="conv()"></select></div>
+      <div style="flex:1"><label>到</label><select id="convTo" onchange="conv()"></select></div>
+    </div>
+    <div class="out" id="convOut"></div>`,
+  pwd: () => `
+    <h2>🔐 密码生成器</h2>
+    <div class="desc">本地生成高强度随机密码，不联网。</div>
+    <label>长度：<span id="pwdLenV">16</span></label>
+    <input type="range" id="pwdLen" min="6" max="40" value="16" oninput="genPwd()"/>
+    <div class="row">
+      <label style="margin:0"><input type="checkbox" id="pwdUp" checked onchange="genPwd()" style="width:auto"/> 大写</label>
+      <label style="margin:0"><input type="checkbox" id="pwdLow" checked onchange="genPwd()" style="width:auto"/> 小写</label>
+      <label style="margin:0"><input type="checkbox" id="pwdNum" checked onchange="genPwd()" style="width:auto"/> 数字</label>
+      <label style="margin:0"><input type="checkbox" id="pwdSym" onchange="genPwd()" style="width:auto"/> 符号</label>
+    </div>
+    <div class="out" id="pwdOut"></div>
+    <button class="ghost" onclick="copyTxt('pwdOut')">📋 复制</button>`,
+  ts: () => `
+    <h2>⏱️ 时间戳转换</h2>
+    <div class="desc">Unix 时间戳 ↔ 北京时间，互相转换。</div>
+    <label>Unix 时间戳（秒）</label>
+    <input type="number" id="tsIn" oninput="tsToDate()"/>
+    <button class="ghost" onclick="tsNow()">填入当前时间戳</button>
+    <div class="out" id="tsOut1"></div>
+    <label>日期时间（YYYY-MM-DD HH:mm:ss）</label>
+    <input type="text" id="tsDate" placeholder="2026-07-22 13:14:00" oninput="dateToTs()"/>
+    <div class="out" id="tsOut2"></div>`,
+  word: () => `
+    <h2>🔤 字数统计</h2>
+    <div class="desc">统计字数、字符数、行数、句子数。</div>
+    <label>粘贴你的文字</label>
+    <textarea id="wcIn" oninput="wc()" placeholder="在这里输入或粘贴文字..."></textarea>
+    <div class="out" id="wcOut"></div>`,
+  case: () => `
+    <h2>🔡 大小写转换</h2>
+    <div class="desc">一键切换英文大小写。</div>
+    <textarea id="ccIn" placeholder="输入英文..."></textarea>
+    <div class="row" style="margin-top:10px">
+      <button class="ghost" onclick="cc('upper')">全大写</button>
+      <button class="ghost" onclick="cc('lower')">全小写</button>
+      <button class="ghost" onclick="cc('title')">首字母大写</button>
+      <button class="ghost" onclick="cc('sentence')">句首大写</button>
+    </div>
+    <div class="out" id="ccOut"></div>
+    <button class="ghost" onclick="copyTxt('ccOut')">📋 复制</button>`,
+  color: () => `
+    <h2>🎨 颜色取色器</h2>
+    <div class="desc">选颜色，拿到 HEX 和 RGB 值。</div>
+    <div class="row">
+      <div style="flex:1"><label>选取</label><input type="color" id="colorPick" value="#4f46e5" oninput="updColor()"/></div>
+      <div style="flex:1"><label>十六进制</label><input id="colorHex" value="#4f46e5" oninput="hexToColor()"/></div>
+    </div>
+    <div id="colorPrev" style="height:64px;border-radius:10px;margin-top:12px;border:1px solid var(--line);background:#4f46e5"></div>
+    <div class="out" id="colorOut"></div>`,
+  bmi: () => `
+    <h2>⚖️ BMI计算器</h2>
+    <div class="desc">根据体重和身高算身体质量指数。</div>
+    <label>体重（kg）</label><input type="number" id="bmiW" value="60" oninput="calcBMI()"/>
+    <label>身高（cm）</label><input type="number" id="bmiH" value="170" oninput="calcBMI()"/>
+    <div class="out" id="bmiOut"></div>`,
+  pct: () => `
+    <h2>📊 百分比计算器</h2>
+    <div class="desc">常用百分比计算。</div>
+    <label>模式</label>
+    <select id="pctMode" onchange="calcPct()">
+      <option value="of">X 的 Y% 是多少？</option>
+      <option value="is">X 是 Y 的百分之多少？</option>
+      <option value="inc">X 增加 Y% 是多少？</option>
+    </select>
+    <div class="row">
+      <div style="flex:1"><label>X</label><input type="number" id="pctX" value="20" oninput="calcPct()"/></div>
+      <div style="flex:1"><label>Y</label><input type="number" id="pctY" value="150" oninput="calcPct()"/></div>
+    </div>
+    <div class="out" id="pctOut"></div>`,
+  tz: () => `
+    <h2>🌐 时区转换</h2>
+    <div class="desc">在时区之间转换日期时间（离线可用）。</div>
+    <label>日期和时间</label>
+    <input type="datetime-local" id="tzIn" value="2026-07-22T13:14"/>
+    <label>从</label><select id="tzFrom" onchange="tzConvert()"></select>
+    <label>到</label><select id="tzTo" onchange="tzConvert()"></select>
+    <div class="out" id="tzOut"></div>`,
+  json: () => `
+    <h2>🧾 JSON格式化</h2>
+    <div class="desc">格式化或压缩 JSON，自动校验。</div>
+    <textarea id="jsonIn" placeholder='{"hello":"world"}' style="font-family:monospace"></textarea>
+    <div class="row" style="margin-top:10px">
+      <button class="ghost" onclick="fmtJSON('pretty')">格式化</button>
+      <button class="ghost" onclick="fmtJSON('min')">压缩</button>
+    </div>
+    <div class="out" id="jsonOut" style="white-space:pre-wrap;font-family:monospace"></div>`,
+  fx: () => `
+    <h2>💱 汇率换算</h2>
+    <div class="desc">按可编辑汇率换算（默认参考价，请自行核对）。</div>
+    <label>金额</label><input type="number" id="fxAmt" value="100" oninput="calcFX()"/>
+    <div class="row">
+      <div style="flex:1"><label>从</label><select id="fxFrom" onchange="calcFX()"></select></div>
+      <div style="flex:1"><label>到</label><select id="fxTo" onchange="calcFX()"></select></div>
+    </div>
+    <label style="margin-top:10px">汇率（1 外币 = ? 人民币，可改）</label>
+    <div id="fxRates" class="row" style="flex-direction:column;gap:6px"></div>
+    <div class="out" id="fxOut"></div>`,
+  draw: () => `
+    <h2>🎲 随机抽签</h2>
+    <div class="desc">从名单里随机抽一个，或生成随机整数。</div>
+    <label>选项（每行一个）</label>
+    <textarea id="drawList" placeholder="张三\n李四\n王五"></textarea>
+    <div class="row" style="margin-top:10px">
+      <button class="ghost" onclick="doDraw()">🎯 抽一个</button>
+      <button class="ghost" onclick="randNum()">生成随机数</button>
+    </div>
+    <div class="out" id="drawOut"></div>
+    <label style="margin-top:10px">随机范围（整数）</label>
+    <div class="row">
+      <div style="flex:1"><input type="number" id="rnMin" value="1" placeholder="最小"/></div>
+      <div style="flex:1"><input type="number" id="rnMax" value="100" placeholder="最大"/></div>
+    </div>`,
+  ai: () => `
+    <h2>🔗 免费 AI 工具导航</h2>
+    <div class="desc">这些是你整合站可以推荐的「真·免费」外部工具。本站只做导航，不二次收费、不偷别人的服务。</div>
+    <div class="links">
+      <a href="https://www.remove.bg/" target="_blank">Remove.bg · 一键去背景<span class="tag">去水印/抠图</span></a>
+      <a href="https://bigjpg.com/" target="_blank">BigJPG · AI 图片无损放大<span class="tag">图片变清晰</span></a>
+      <a href="https://clipdrop.co/" target="_blank">Clipdrop · AI 扩图/抹除<span class="tag">AI扩图</span></a>
+      <a href="https://www.ilovepdf.com/zh-cn" target="_blank">iLovePDF · PDF 处理<span class="tag">文档</span></a>
+      <a href="https://huggingface.co/spaces" target="_blank">HuggingFace Spaces · 海量免费 AI 演示<span class="tag">综合</span></a>
+      <a href="https://chat.openai.com/" target="_blank">ChatGPT · 通用 AI 对话<span class="tag">对话</span></a>
+    </div>
+    <div class="legal">想做「付费墙」版本？注意：把别人的免费工具 iframe 进去再收费，通常违反对方服务条款。更稳的做法是你自己写工具（如本站的压缩/换算），或只做导航赚广告费。</div>`
+};
+
+function render(name){
+  panel.innerHTML = tools[name]();
+  if(name==='qr') genQR();
+  if(name==='hb') calcHB();
+  if(name==='conv'){ initConv(); conv(); }
+  if(name==='pwd') genPwd();
+  if(name==='ts') tsNow();
+  if(name==='word') wc();
+  if(name==='color') updColor();
+  if(name==='bmi') calcBMI();
+  if(name==='pct') calcPct();
+  if(name==='tz'){ initTZ(); tzConvert(); }
+  if(name==='fx'){ initFX(); calcFX(); }
+}
+
+/* 二维码 */
+let qrIns=null;
+function genQR(){
+  const t=document.getElementById('qrText').value||' ';
+  const box=document.getElementById('qrcode'); box.innerHTML='';
+  qrIns=new QRCode(box,{text:t,width:200,height:200,colorDark:'#1f2430',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
+}
+function dlQR(){
+  const c=document.querySelector('#qrcode img')||document.querySelector('#qrcode canvas');
+  if(!c)return; const a=document.createElement('a');
+  a.href=c.src||c.toDataURL('image/png'); a.download='qrcode.png'; a.click();
+}
+
+/* 图片压缩 */
+function compressImg(){
+  const f=document.getElementById('imgFile').files[0]; if(!f)return;
+  const q=parseFloat(document.getElementById('quality').value);
+  const rd=new FileReader();
+  rd.onload=e=>{
+    const im=new Image();
+    im.onload=()=>{
+      const cv=document.getElementById('cv'); const maxW=1200;
+      let w=im.width,h=im.height; if(w>maxW){h=h*maxW/w;w=maxW;}
+      cv.width=w; cv.height=h; cv.getContext('2d').drawImage(im,0,0,w,h);
+      cv.toBlob(b=>{
+        const before=f.size, after=b.size;
+        document.getElementById('imgInfo').innerHTML=
+          `原图：${(before/1024).toFixed(1)} KB → 压缩后：${(after/1024).toFixed(1)} KB （省了 ${((1-after/before)*100).toFixed(0)}%）`;
+        document.getElementById('dlImg').style.display='inline-block';
+        cv.dataset.blob=URL.createObjectURL(b);
+      }, 'image/jpeg', q);
+    };
+    im.src=e.target.result;
+  };
+  rd.readAsDataURL(f);
+}
+function dlImg(){
+  const cv=document.getElementById('cv');
+  const a=document.createElement('a'); a.href=cv.dataset.blob; a.download='compressed.jpg'; a.click();
+}
+
+/* 外卖红包 */
+function calcHB(){
+  const p=+document.getElementById('hbPrice').value||0;
+  const c=+document.getElementById('hbCut').value||0;
+  const r=+document.getElementById('hbRed').value||0;
+  const s=+document.getElementById('hbShip').value||0;
+  const pay=Math.max(0,p-c-r)+s;
+  document.getElementById('hbOut').innerHTML=
+    `原价 <b>${p}</b> 元 ＋ 配送费 <b>${s}</b><br>满减 <b>-${c}</b> ＋ 红包 <b>-${r}</b><br>
+     <span class="big">实际支付：${pay.toFixed(2)} 元</span><br>
+     相比原价省了 <b>${(p - (p-c-r>0?p-c-r:0)).toFixed(2)}</b> 元（不含配送费）`;
+}
+
+/* 单位换算 */
+const UNITS={
+  len:{米:1,千米:1000,厘米:0.01,英里:1609.34,英尺:0.3048,英寸:0.0254},
+  weight:{千克:1,克:0.001,斤:0.5,磅:0.453592,盎司:0.0283495},
+  temp:null
+};
+function initConv(){
+  const t=document.getElementById('convType').value;
+  const from=document.getElementById('convFrom'), to=document.getElementById('convTo');
+  from.innerHTML=''; to.innerHTML='';
+  if(t!=='temp'){
+    Object.keys(UNITS[t]).forEach(k=>{ from.add(new Option(k,k)); to.add(new Option(k,k)); });
+    to.selectedIndex=1;
+  }else{
+    ['摄氏度','华氏度','开尔文'].forEach(k=>{from.add(new Option(k,k));to.add(new Option(k,k));});
+    to.selectedIndex=1;
+  }
+}
+function conv(){
+  const t=document.getElementById('convType').value;
+  const v=parseFloat(document.getElementById('convVal').value)||0;
+  const f=document.getElementById('convFrom').value, to=document.getElementById('convTo').value;
+  let res;
+  if(t==='temp'){
+    let c = f==='摄氏度'?v : f==='华氏度'?(v-32)*5/9 : v-273.15;
+    res = to==='摄氏度'?c : to==='华氏度'?c*9/5+32 : c+273.15;
+  }else{
+    const base=v*UNITS[t][f]; res=base/UNITS[t][to];
+  }
+  document.getElementById('convOut').innerHTML=`${v} ${f} = <b>${res.toFixed(4)}</b> ${to}`;
+}
+
+/* 密码 */
+function genPwd(){
+  const len=+document.getElementById('pwdLen').value;
+  document.getElementById('pwdLenV').textContent=len;
+  let pool='';
+  if(document.getElementById('pwdUp').checked)pool+='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if(document.getElementById('pwdLow').checked)pool+='abcdefghijklmnopqrstuvwxyz';
+  if(document.getElementById('pwdNum').checked)pool+='0123456789';
+  if(document.getElementById('pwdSym').checked)pool+='!@#$%^&*()-_=+[]{};:,.?';
+  if(!pool){document.getElementById('pwdOut').textContent='请至少勾选一种字符';return;}
+  let s='';const arr=new Uint32Array(len);
+  crypto.getRandomValues(arr);
+  for(let i=0;i<len;i++)s+=pool[arr[i]%pool.length];
+  document.getElementById('pwdOut').textContent=s;
+}
+
+/* 时间戳 */
+function tsNow(){document.getElementById('tsIn').value=Math.floor(Date.now()/1000);tsToDate();}
+function pad(n){return n<10?'0'+n:n;}
+function tsToDate(){
+  const ts=+document.getElementById('tsIn').value; if(!ts)return;
+  const d=new Date(ts*1000);
+  document.getElementById('tsOut1').textContent=
+    `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+}
+function dateToTs(){
+  const v=document.getElementById('tsDate').value;
+  const m=v.match(/(\d+)-(\d+)-(\d+)\s+(\d+):(\d+):(\d+)/); if(!m)return;
+  const d=new Date(+m[1],+m[2]-1,+m[3],+m[4],+m[5],+m[6]);
+  document.getElementById('tsOut2').textContent='Unix 时间戳：'+Math.floor(d.getTime()/1000);
+}
+
+/* 字数统计 */
+function wc(){
+  const t=document.getElementById('wcIn').value;
+  const chars=t.length;
+  const charsNo=t.replace(/\s/g,'').length;
+  const words=t.trim()?t.trim().split(/\s+/).length:0;
+  const lines=t?t.split(/\n/).length:0;
+  const sentences=(t.match(/[。！？.!?]+/g)||[]).length;
+  document.getElementById('wcOut').innerHTML=
+    `字数：<b>${words}</b> · 字符数：<b>${chars}</b>（不含空格 ${charsNo}）<br>行数：<b>${lines}</b> · 句子数：<b>${sentences}</b>`;
+}
+
+/* 大小写 */
+function cc(mode){
+  const t=document.getElementById('ccIn').value;
+  let r=t;
+  if(mode==='upper') r=t.toUpperCase();
+  else if(mode==='lower') r=t.toLowerCase();
+  else if(mode==='title') r=t.replace(/[^\s]+/g,w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase());
+  else if(mode==='sentence') r=t.toLowerCase().replace(/(^\s*|[.!?]\s+)([a-z])/g,(_,a,b)=>a+b.toUpperCase());
+  document.getElementById('ccOut').textContent=r;
+}
+
+/* 颜色 */
+function hexToRgb(h){
+  h=h.replace('#',''); if(h.length===3)h=h.split('').map(c=>c+c).join('');
+  const n=parseInt(h,16); return {r:(n>>16)&255,g:(n>>8)&255,b:n&255};
+}
+function updColor(){
+  const v=document.getElementById('colorPick').value;
+  document.getElementById('colorHex').value=v; showColor(v);
+}
+function hexToColor(){
+  let v=document.getElementById('colorHex').value.trim();
+  if(!v.startsWith('#'))v='#'+v;
+  if(/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(v)){
+    document.getElementById('colorPick').value=v.length===4?('#'+v.slice(1).split('').map(c=>c+c).join('')):v;
+    showColor(v);
+  }
+}
+function showColor(v){
+  const {r,g,b}=hexToRgb(v);
+  document.getElementById('colorPrev').style.background=v;
+  document.getElementById('colorOut').innerHTML=`HEX：<b>${v.toUpperCase()}</b> · RGB：<b>rgb(${r}, ${g}, ${b})</b>`;
+}
+
+/* BMI */
+function calcBMI(){
+  const w=+document.getElementById('bmiW').value||0;
+  const h=(+document.getElementById('bmiH').value||0)/100;
+  if(!w||!h){document.getElementById('bmiOut').textContent='请输入体重和身高';return;}
+  const bmi=w/(h*h);
+  let cat=bmi<18.5?'偏瘦':bmi<24?'正常':bmi<28?'偏胖':'肥胖';
+  document.getElementById('bmiOut').innerHTML=`BMI：<span class="big">${bmi.toFixed(1)}</span> · ${cat}`;
+}
+
+/* 百分比 */
+function calcPct(){
+  const x=+document.getElementById('pctX').value||0;
+  const y=+document.getElementById('pctY').value||0;
+  const mode=document.getElementById('pctMode').value;
+  let r;
+  if(mode==='of') r=`${x}% 的 ${y} = <b>${(x*y/100).toFixed(2)}</b>`;
+  else if(mode==='is') r=`${x} 是 ${y} 的 <b>${y?(x/y*100).toFixed(2):0}%</b>`;
+  else r=`${x} 增加 ${y}% = <b>${(x*(1+y/100)).toFixed(2)}</b>`;
+  document.getElementById('pctOut').innerHTML=r;
+}
+
+/* 时区 */
+const TZS=['UTC','Asia/Shanghai','Asia/Tokyo','Asia/Hong_Kong','Asia/Singapore','Asia/Kolkata',
+  'Europe/London','Europe/Paris','Europe/Berlin','America/New_York','America/Chicago','America/Los_Angeles','Australia/Sydney'];
+const TZCN={'UTC':'UTC 国际标准','Asia/Shanghai':'中国-上海','Asia/Tokyo':'日本-东京','Asia/Hong_Kong':'中国-香港',
+  'Asia/Singapore':'新加坡','Asia/Kolkata':'印度-加尔各答','Europe/London':'英国-伦敦','Europe/Paris':'法国-巴黎',
+  'Europe/Berlin':'德国-柏林','America/New_York':'美国-纽约','America/Chicago':'美国-芝加哥',
+  'America/Los_Angeles':'美国-洛杉矶','Australia/Sydney':'澳大利亚-悉尼'};
+function initTZ(){
+  const f=document.getElementById('tzFrom'), t=document.getElementById('tzTo');
+  TZS.forEach(z=>{f.add(new Option(TZCN[z],z));t.add(new Option(TZCN[z],z));});
+  f.value='Asia/Shanghai'; t.value='America/New_York';
+}
+function tzOffsetMs(tz,date){
+  const p=new Intl.DateTimeFormat('en-US',{timeZone:tz,hour12:false,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'}).formatToParts(date);
+  const m={}; p.forEach(x=>m[x.type]=x.value);
+  const hh=m.hour==='24'?'00':m.hour;
+  const asUTC=Date.UTC(+m.year,+m.month-1,+m.day,+hh,+m.minute,+m.second);
+  return asUTC-date.getTime();
+}
+function tzConvert(){
+  const v=document.getElementById('tzIn').value; if(!v)return;
+  const [dp,tp]=v.split('T'); const [Y,M,D]=dp.split('-').map(Number); const [h,mi]=tp.split(':').map(Number);
+  const from=document.getElementById('tzFrom').value, to=document.getElementById('tzTo').value;
+  const utcGuess=Date.UTC(Y,M-1,D,h,mi,0);
+  const wall=new Date(utcGuess - tzOffsetMs(from,new Date(utcGuess)));
+  const fmt=tz=>new Intl.DateTimeFormat('zh-CN',{timeZone:tz,dateStyle:'full',timeStyle:'short'}).format(wall);
+  document.getElementById('tzOut').innerHTML=`${fmt(from)}<br>↓<br><b>${fmt(to)}</b>`;
+}
+
+/* JSON */
+function fmtJSON(mode){
+  const raw=document.getElementById('jsonIn').value;
+  try{
+    const obj=JSON.parse(raw);
+    const out=mode==='min'?JSON.stringify(obj):JSON.stringify(obj,null,2);
+    document.getElementById('jsonOut').textContent=out;
+  }catch(e){
+    document.getElementById('jsonOut').textContent='❌ JSON 格式错误：'+e.message;
+  }
+}
+
+/* 汇率 */
+const FX={CNY:1,USD:7.2,EUR:7.8,JPY:0.048,GBP:9.1,HKD:0.92};
+function initFX(){
+  const f=document.getElementById('fxFrom'), t=document.getElementById('fxTo');
+  Object.keys(FX).forEach(c=>{f.add(new Option(c,c));t.add(new Option(c,c));});
+  f.value='USD'; t.value='CNY';
+  const box=document.getElementById('fxRates'); box.innerHTML='';
+  Object.keys(FX).forEach(c=>{
+    const d=document.createElement('div'); d.className='row';
+    d.innerHTML=`<span style="flex:1;font-size:14px">1 ${c} =</span>
+      <input style="flex:1" type="number" step="0.0001" value="${FX[c]}" data-cur="${c}" onchange="updRate(this)"/>
+      <span style="flex:0 0 auto;align-self:center">人民币</span>`;
+    box.appendChild(d);
+  });
+}
+function updRate(el){ FX[el.dataset.cur]=parseFloat(el.value)||0; calcFX(); }
+function calcFX(){
+  const amt=+document.getElementById('fxAmt').value||0;
+  const from=document.getElementById('fxFrom').value, to=document.getElementById('fxTo').value;
+  const cny=amt*FX[from]; const res=cny/FX[to];
+  document.getElementById('fxOut').innerHTML=`${amt} ${from} = <b>${res.toFixed(2)}</b> ${to}
+    （${from}→人民币 ${cny.toFixed(2)}）`;
+}
+
+/* 随机抽签 */
+function doDraw(){
+  const list=document.getElementById('drawList').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  if(!list.length){document.getElementById('drawOut').textContent='请先输入选项';return;}
+  const pick=list[Math.floor(Math.random()*list.length)];
+  document.getElementById('drawOut').innerHTML=`🎯 抽中：<span class="big">${pick}</span>`;
+}
+function randNum(){
+  const min=+(document.getElementById('rnMin').value||0);
+  const max=+(document.getElementById('rnMax').value||0);
+  if(max<min){document.getElementById('drawOut').textContent='最大不能小于最小';return;}
+  const n=Math.floor(Math.random()*(max-min+1))+min;
+  document.getElementById('drawOut').innerHTML=`🎲 随机数：<span class="big">${n}</span>`;
+}
+
+function copyTxt(id){
+  const t=document.getElementById(id).textContent;
+  navigator.clipboard.writeText(t).then(()=>alert('已复制'));
+}
+
+nav.addEventListener('click',e=>{
+  if(e.target.tagName==='BUTTON'){
+    [...nav.children].forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    render(e.target.dataset.tool);
+  }
+});
+
+render('qr');
+</script>
+</body>
+</html>
