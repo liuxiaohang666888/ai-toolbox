@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Time Zone Converter — Free Online ToolBox</title>
+<meta name="description" content="Free online time zone converter. Convert any date and time across world time zones — works offline." />
+<meta name="keywords" content="time zone converter, world time converter, convert time zones" />
+<meta property="og:title" content="Time Zone Converter — Free Online ToolBox" />
+<meta property="og:description" content="Free browser-based time zone converter. No sign-up, works offline." />
+<link rel="stylesheet" href="style.css" />
+<!-- AD-PLACEHOLDER: paste your Google AdSense <script> here (under a guardian's 18+ account). -->
+</head>
+<body>
+<header>
+  <a class="lang" href="../index.html">🌐 中文</a>
+  <div class="brand">🧰 ToolBox</div>
+  <p>Free · Online · Works instantly · No sign-up</p>
+</header>
+
+<div class="ad-note">
+  💡 <b>About monetization:</b> all tools here are real, client-side utilities.
+  Ad revenue needs a <b>Google AdSense account</b> held by someone <b>18+</b> (a parent/guardian can open it for you).
+  The spot marked <code>AD-PLACEHOLDER</code> is where the ad code goes.
+</div>
+
+<div class="wrap">
+  <div class="grid">
+    <nav class="nav" id="nav">
+      <a href="index.html" class="home">🏠 All Tools</a>
+      <a href="qr.html">🔳 QR Code</a>
+      <a href="compress.html">🗜️ Image Compressor</a>
+      <a href="tip.html">💡 Tip Calculator</a>
+      <a href="conv.html">🔁 Unit Converter</a>
+      <a href="pwd.html">🔐 Password Generator</a>
+      <a href="timestamp.html">⏱️ Timestamp</a>
+      <a href="word.html">🔤 Word Counter</a>
+      <a href="case.html">🔡 Case Converter</a>
+      <a href="color.html">🎨 Color Picker</a>
+      <a href="bmi.html">⚖️ BMI</a>
+      <a href="percent.html">📊 Percentage</a>
+      <a href="timezone.html" class="active">🌐 Time Zone</a>
+      <a href="json.html">🧾 JSON Formatter</a>
+      <a href="ai.html">🔗 Free AI Tools</a>
+    </nav>
+
+    <section class="panel">
+      <h1>🌐 Time Zone Converter</h1>
+      <div class="desc">Convert a date/time between time zones (works offline).</div>
+      <label>Date &amp; time</label>
+      <input type="datetime-local" id="tzIn" value="2026-07-22T13:14"/>
+      <label>From</label><select id="tzFrom" onchange="tzConvert()"></select>
+      <label>To</label><select id="tzTo" onchange="tzConvert()"></select>
+      <div class="out" id="tzOut"></div>
+    </section>
+  </div>
+
+  <!-- AD-PLACEHOLDER: Ad slot A (between nav and panel — high traffic) -->
+
+  <div class="legal">
+    <b>Compliance:</b> This is a personal utility project. All processing happens locally in your browser.
+    When enabling ads, use an account held by a parent/guardian (18+) and follow each platform's Terms of Service.
+  </div>
+</div>
+
+<footer>© ToolBox · Generated with AI · Hosted on Vercel / Netlify free tier</footer>
+
+<script src="tools.js"></script>
+<script>initTZ();tzConvert();</script>
+</body>
+</html>
