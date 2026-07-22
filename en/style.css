@@ -1,0 +1,64 @@
+:root{
+  --bg:#f6f7fb; --card:#ffffff; --ink:#1f2430; --sub:#6b7280;
+  --brand:#4f46e5; --brand2:#22c55e; --line:#e6e8ef; --radius:16px;
+  --shadow:0 6px 24px rgba(31,36,48,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+  Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;padding-bottom:48px}
+header{background:linear-gradient(120deg,#4f46e5,#22c55e);
+  color:#fff;padding:24px 20px;text-align:center;position:relative}
+.brand{font-size:26px;font-weight:800;letter-spacing:.3px}
+header p{opacity:.92;margin-top:6px;font-size:14px}
+.lang{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.2);
+  color:#fff;padding:6px 12px;border-radius:20px;text-decoration:none;font-size:13px;font-weight:600}
+.lang:hover{background:rgba(255,255,255,.32)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+.ad-note{background:#fff7e6;border:1px solid #ffe08a;color:#8a6d00;
+  font-size:13px;padding:10px 14px;border-radius:10px;margin:16px auto;max-width:1000px}
+.grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+@media(min-width:720px){.grid{grid-template-columns:240px 1fr}}
+.nav{display:flex;flex-wrap:wrap;gap:8px}
+@media(min-width:720px){.nav{flex-direction:column}}
+.nav a{appearance:none;border:1px solid var(--line);background:var(--card);
+  color:var(--ink);padding:11px 14px;border-radius:12px;cursor:pointer;
+  text-align:left;font-size:14px;font-weight:600;transition:.15s;text-decoration:none}
+.nav a:hover{border-color:var(--brand);color:var(--brand)}
+.nav a.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+.nav a.home{background:#eef0f7}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;box-shadow:var(--shadow);min-height:320px}
+.panel h1{font-size:19px;margin-bottom:4px}
+.panel .desc{color:var(--sub);font-size:13px;margin-bottom:16px}
+label{display:block;font-size:13px;color:var(--sub);margin:12px 0 6px}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);
+  border-radius:10px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
+textarea{resize:vertical;min-height:80px}
+button.act{background:var(--brand);color:#fff;border:none;padding:11px 18px;
+  border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;margin-top:10px}
+button.ghost{background:#eef0f7;color:var(--ink);border:none;padding:9px 14px;
+  border-radius:9px;cursor:pointer;font-size:13px;margin-top:8px}
+.out{margin-top:14px;background:#f9fafc;border:1px dashed var(--line);
+  border-radius:10px;padding:12px;font-size:15px;word-break:break-all}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.big{font-size:22px;font-weight:800;color:var(--brand)}
+#qrcode{margin-top:14px;display:flex;justify-content:center}
+.links a{display:block;padding:12px 14px;border:1px solid var(--line);
+  border-radius:12px;margin-bottom:10px;text-decoration:none;color:var(--ink);transition:.15s}
+.links a:hover{border-color:var(--brand);color:var(--brand)}
+.links small{color:var(--sub);display:block;margin-top:2px}
+.tag{display:inline-block;background:#eef0f7;color:var(--sub);font-size:12px;
+  padding:2px 8px;border-radius:20px;margin-left:6px}
+footer{text-align:center;color:var(--sub);font-size:12px;margin-top:30px;padding:0 16px}
+.legal{background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;font-size:12px;color:var(--sub);margin-top:16px}
+/* homepage cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:18px}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:.15s}
+.card:hover{border-color:var(--brand);transform:translateY(-2px)}
+.card .ico{font-size:26px}
+.card h3{font-size:16px;margin:8px 0 4px}
+.card p{font-size:13px;color:var(--sub);margin:0}
+.section-title{margin-top:26px;font-size:18px}
