@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Percentage Calculator — Free Online ToolBox</title>
+<meta name="description" content="Free online percentage calculator. Solve 'X% of Y', 'X is what % of Y', and percentage increase." />
+<meta name="keywords" content="percentage calculator, percent of, percentage increase, calculate percentage" />
+<meta property="og:title" content="Percentage Calculator — Free Online ToolBox" />
+<meta property="og:description" content="Free browser-based percentage calculator. No sign-up, instant result." />
+<link rel="stylesheet" href="style.css" />
+<!-- AD-PLACEHOLDER: paste your Google AdSense <script> here (under a guardian's 18+ account). -->
+</head>
+<body>
+<header>
+  <a class="lang" href="../index.html">🌐 中文</a>
+  <div class="brand">🧰 ToolBox</div>
+  <p>Free · Online · Works instantly · No sign-up</p>
+</header>
+
+<div class="ad-note">
+  💡 <b>About monetization:</b> all tools here are real, client-side utilities.
+  Ad revenue needs a <b>Google AdSense account</b> held by someone <b>18+</b> (a parent/guardian can open it for you).
+  The spot marked <code>AD-PLACEHOLDER</code> is where the ad code goes.
+</div>
+
+<div class="wrap">
+  <div class="grid">
+    <nav class="nav" id="nav">
+      <a href="index.html" class="home">🏠 All Tools</a>
+      <a href="qr.html">🔳 QR Code</a>
+      <a href="compress.html">🗜️ Image Compressor</a>
+      <a href="tip.html">💡 Tip Calculator</a>
+      <a href="conv.html">🔁 Unit Converter</a>
+      <a href="pwd.html">🔐 Password Generator</a>
+      <a href="timestamp.html">⏱️ Timestamp</a>
+      <a href="word.html">🔤 Word Counter</a>
+      <a href="case.html">🔡 Case Converter</a>
+      <a href="color.html">🎨 Color Picker</a>
+      <a href="bmi.html">⚖️ BMI</a>
+      <a href="percent.html" class="active">📊 Percentage</a>
+      <a href="timezone.html">🌐 Time Zone</a>
+      <a href="json.html">🧾 JSON Formatter</a>
+      <a href="ai.html">🔗 Free AI Tools</a>
+    </nav>
+
+    <section class="panel">
+      <h1>📊 Percentage Calculator</h1>
+      <div class="desc">Common percentage math.</div>
+      <label>Mode</label>
+      <select id="pctMode" onchange="calcPct()">
+        <option value="of">What is X% of Y?</option>
+        <option value="is">X is what % of Y?</option>
+        <option value="inc">X increased by Y%?</option>
+      </select>
+      <div class="row">
+        <div style="flex:1"><label>X</label><input type="number" id="pctX" value="20" oninput="calcPct()"/></div>
+        <div style="flex:1"><label>Y</label><input type="number" id="pctY" value="150" oninput="calcPct()"/></div>
+      </div>
+      <div class="out" id="pctOut"></div>
+    </section>
+  </div>
+
+  <!-- AD-PLACEHOLDER: Ad slot A (between nav and panel — high traffic) -->
+
+  <div class="legal">
+    <b>Compliance:</b> This is a personal utility project. All processing happens locally in your browser.
+    When enabling ads, use an account held by a parent/guardian (18+) and follow each platform's Terms of Service.
+  </div>
+</div>
+
+<footer>© ToolBox · Generated with AI · Hosted on Vercel / Netlify free tier</footer>
+
+<script src="tools.js"></script>
+<script>calcPct();</script>
+</body>
+</html>
